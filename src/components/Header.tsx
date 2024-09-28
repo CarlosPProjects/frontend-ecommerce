@@ -31,30 +31,38 @@ const Header = () => {
                 href="#"
                 className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group"
               >
-                <Heart strokeWidth="1.5" className="w-[22px] h-[22px] group-hover:text-white transition" />
+                <Heart
+                  strokeWidth="1.5"
+                  className="w-[22px] h-[22px] group-hover:text-white transition"
+                />
               </Link>
               <Link
                 href="#"
                 className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group"
               >
-                <User strokeWidth="1.5" className="w-[22px] h-[22px] group-hover:text-white transition" />
+                <User
+                  strokeWidth="1.5"
+                  className="w-[22px] h-[22px] group-hover:text-white transition"
+                />
               </Link>
             </div>
             <div className="block md:hidden">
-              <MenuMobile/>
+              <MenuMobile />
             </div>
           </div>
         </MaxWidthContainer>
       </div>
-      <MaxWidthContainer className="hidden md:block">
-        <div className="flex justify-between items-center py-6 text-[#636270] leading-tight text-sm font-medium">
-          <Navigator />
-          <div>
-            <span className="mr-2">Contact:</span>
-            <span className="text-primary font-normal">(808) 555-0111</span>
+      <div className="shadow-sm">
+        <MaxWidthContainer className="hidden md:block">
+          <div className="flex justify-between items-center py-[14px] text-[#636270] leading-tight text-sm font-medium">
+            <Navigator />
+            <div>
+              <span className="mr-2">Contact:</span>
+              <span className="text-primary font-normal">(808) 555-0111</span>
+            </div>
           </div>
-        </div>
-      </MaxWidthContainer>
+        </MaxWidthContainer>
+      </div>
     </>
   );
 };
