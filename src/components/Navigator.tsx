@@ -13,62 +13,57 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { TResponse } from "@/types/response";
+import useGetProductCategories from "@/app/api/useGetProductCategories";
+import NavSkeleton from "./category/navSkeleton";
+import { Category } from "@/types/category";
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
+    title: "Desk Chair",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "A functional chair with ergonomic features, ideal for workspaces and long hours at a desk.",
   },
   {
-    title: "Hover Card",
+    title: "Wing Chair",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "A stylish, high-backed armchair with 'winged'   sides, perfect for cozy living spaces.",
   },
   {
-    title: "Progress",
+    title: "Wooden Chair",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "A durable, solid wood chair that adds natural charm to any decor.",
   },
 ];
 
 export const Navigator = () => {
+  const { loading, result }: TResponse = useGetProductCategories();
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="border border-border">All Categories</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="border border-border">
+            All Categories
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
+              {loading
+                ? Array(4)
+                    .fill(null)
+                    .map((_, index) => <NavSkeleton key={index} />)
+                : result.map((data: Category) => (
+                    <ListItem
+                      key={data.name}
+                      title={data.name}
+                      href={`/product/category/${data.slug}`}
+                    >
+                      {data.description}
+                    </ListItem>
+                  ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

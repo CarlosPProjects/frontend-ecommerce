@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const useGetFeaturedProducts = () => {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[isFeatured][$eq]=true&populate=*`;
+const useGetProductCategories = () => {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/categories?populate=*`;
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -22,4 +22,4 @@ const useGetFeaturedProducts = () => {
   return { loading, error, result };
 };
 
-export default useGetFeaturedProducts;
+export default useGetProductCategories;

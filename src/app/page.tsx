@@ -1,4 +1,5 @@
 import MaxWidthContainer from "@/components/MaxWidthContainer";
+import FeatureProduct from "@/components/product/featured-product";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
         <p>
           Hello World
         </p>
+        <FeatureProduct/>
       </div>
     </MaxWidthContainer>
   );
