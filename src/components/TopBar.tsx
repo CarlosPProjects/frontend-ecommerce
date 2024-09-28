@@ -7,7 +7,7 @@ const TopBar = () => {
     <MaxWidthContainer className="bg-foreground">
       <div className="flex flex-row flex-wrap justify-center sm:justify-between items-center gap-4 py-[14px] text-white text-sm opacity-70 font-light leading-tight">
         <div className="flex flex-nowrap items-center gap-[6px]">
-          <Check className="w-4 h-4" />
+          <Check strokeWidth="1.5" className="w-4 h-4" />
           <span>Free shipping on all orders over $50</span>
         </div>
         <div>
@@ -21,7 +21,7 @@ const TopBar = () => {
                 href="/help"
                 className="flex flex-nowrap items-center gap-[6px]"
               >
-                <AlertCircle className="w-4 h-4" />
+                <AlertCircle strokeWidth="1.5" className="w-4 h-4" />
                 <span>Need Help</span>
               </Link>
             </li>

@@ -1,9 +1,11 @@
 import Image from "next/image";
 import MaxWidthContainer from "./MaxWidthContainer";
 import TopBar from "./TopBar";
-import { Heart, ShoppingCart, UserRound } from "lucide-react";
+import { Heart, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
+import { Navigator } from "./Navigator";
+import MenuMobile from "./MenuMobile";
 
 const Header = () => {
   return (
@@ -13,28 +15,46 @@ const Header = () => {
       <div className="bg-background-light">
         <MaxWidthContainer className="py-[22px]">
           <div className="flex justify-between items-center">
-            <Image src="/assets/logo.png" alt="Logo" width={166} height={40} />
+            <Image
+              src="/assets/logo.png"
+              alt="Logo"
+              width={166}
+              height={40}
+              priority
+            />
             <SearchInput />
             <div className="hidden md:flex gap-[12px]">
               <div className="rounded-lg bg-white p-[11px]">
-                <ShoppingCart className="w-[22px] h-[22px]" />
+                <ShoppingCart strokeWidth="1.5" className="w-[22px] h-[22px]" />
               </div>
               <Link
                 href="#"
                 className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group"
               >
-                <Heart className="w-[22px] h-[22px] group-hover:text-white transition" />
+                <Heart strokeWidth="1.5" className="w-[22px] h-[22px] group-hover:text-white transition" />
               </Link>
               <Link
                 href="#"
                 className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group"
               >
-                <UserRound className="w-[22px] h-[22px] group-hover:text-white transition" />
+                <User strokeWidth="1.5" className="w-[22px] h-[22px] group-hover:text-white transition" />
               </Link>
+            </div>
+            <div className="block md:hidden">
+              <MenuMobile/>
             </div>
           </div>
         </MaxWidthContainer>
       </div>
+      <MaxWidthContainer className="hidden md:block">
+        <div className="flex justify-between items-center py-6 text-[#636270] leading-tight text-sm font-medium">
+          <Navigator />
+          <div>
+            <span className="mr-2">Contact:</span>
+            <span className="text-primary font-normal">(808) 555-0111</span>
+          </div>
+        </div>
+      </MaxWidthContainer>
     </>
   );
 };

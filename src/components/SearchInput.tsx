@@ -6,7 +6,7 @@ const SearchInput = () => {
     <form className="w-full max-w-[412px] hidden lg:block">
       <div className="flex gap-2 rounded-lg bg-white py-[11px] px-4">
         <input type="text" placeholder="Search here..." className="flex-1 outline-none bg-transparent text-base text-muted leading-tight" />
-        <Search className="w-[22px] h-[22px]" />
+        <Search strokeWidth="1.5" className="w-[22px] h-[22px]" />
       </div>
     </form>
   );
