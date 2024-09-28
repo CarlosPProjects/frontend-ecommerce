@@ -6,6 +6,9 @@
   .text-balance {
     text-wrap: balance;
   }
+  .inner-shadow{
+    box-shadow: inset 0px 0px 3px 0px #E1E3E5;
+  }
 }
 
 @layer base {
@@ -28,7 +31,7 @@
     --destructive-foreground: 210 20% 98%;
     --border: 210 7% 89%;
     --input: 220 13% 91%;
-    --ring: 248 31% 20%;
+    --ring: 210 7% 89%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
