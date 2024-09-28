@@ -1,7 +1,13 @@
+import MaxWidthContainer from "@/components/MaxWidthContainer";
+
 export default function Home() {
   return (
-    <div>
-      Hello World
-    </div>
+    <MaxWidthContainer>
+      <div>
+        <p>
+          Hello World
+        </p>
+      </div>
+    </MaxWidthContainer>
   );
 }
