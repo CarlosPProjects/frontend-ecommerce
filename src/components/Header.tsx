@@ -15,13 +15,15 @@ const Header = () => {
       <div className="bg-white md:bg-background-light">
         <MaxWidthContainer className="py-[22px]">
           <div className="flex justify-between items-center">
-            <Image
-              src="/assets/logo.png"
-              alt="Logo"
-              width={166}
-              height={40}
-              priority
-            />
+            <Link href="/">
+              <Image
+                src="/assets/logo.png"
+                alt="Logo"
+                width={166}
+                height={40}
+                priority
+              />
+            </Link>
             <SearchInput />
             <div className="hidden md:flex gap-[12px]">
               <div className="rounded-lg bg-white p-[11px]">
