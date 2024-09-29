@@ -21,7 +21,7 @@ import { TResponse } from "@/types/response";
 import { Category } from "@/types/category";
 
 export const Navigator = () => {
-  const { loading, result }: TResponse = useGetProductCategories();
+  const { error, loading, result }: TResponse = useGetProductCategories();
 
   return (
     <NavigationMenu>
@@ -32,19 +32,27 @@ export const Navigator = () => {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {loading
-                ? Array(4)
-                    .fill(null)
-                    .map((_, index) => <NavSkeleton key={index} />)
-                : result.map((data: Category) => (
-                    <ListItem
-                      key={data.name}
-                      title={data.name}
-                      href={`/product/category/${data.slug}`}
-                    >
-                      {data.description}
-                    </ListItem>
-                  ))}
+              {loading ? (
+                Array(4)
+                  .fill(null)
+                  .map((_, index) => <NavSkeleton key={index} />)
+              ) : error ? (
+                <p className="text-red-500">
+                  Failed to load categories: {error}
+                </p>
+              ) : result?.length ? (
+                result.map((data: Category) => (
+                  <ListItem
+                    key={data.name}
+                    title={data.name}
+                    href={`/product/category/${data.slug}`}
+                  >
+                    {data.description}
+                  </ListItem>
+                ))
+              ) : (
+                <p>No categories found</p>
+              )}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
