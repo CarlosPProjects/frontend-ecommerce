@@ -8,6 +8,6 @@ export interface Category {
   publishedAt: string
   locale: any
   description: string
-  minimage: Image | null;
+  minimage: Image;
   localizations: any[]
 }

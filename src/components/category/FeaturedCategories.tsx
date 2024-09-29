@@ -1,6 +1,7 @@
+'use client'
+
 import * as React from "react";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -8,30 +9,41 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import CardCategory from "./CardCategory";
+import useGetProductCategories from "@/app/api/useGetProductCategories";
+import { TResponse } from "@/types/response";
+import { Category } from "@/types/category";
 
 const FeaturedCategories = () => {
+  const { error, loading, result }: TResponse = useGetProductCategories();
+
   return (
     <Carousel
       opts={{
         align: "start",
+        loop: true,
       }}
-      className="w-full max-w-sm"
+      className="w-full"
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
+        {loading || error ? (
+          <p>Loading</p>
+        ) : (
+          result.map((data: Category) => (
+            <CarouselItem
+              key={data.name}
+              className="basis-full sm:basis-1/2 md:basis-1/3"
+            >
+              <CardCategory
+                name={data.name}
+                featuredImage={data.minimage?.formats.medium.url}
+              />
+            </CarouselItem>
+          ))
+        )}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="-top-[64px] left-full -translate-x-20 md:-translate-x-24" />
+      <CarouselNext className="-top-[64px] right-0"/>
     </Carousel>
   );
 };

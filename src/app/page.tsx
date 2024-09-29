@@ -1,3 +1,4 @@
+import FeaturedCategories from "@/components/category/FeaturedCategories";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
 import FeatureProduct from "@/components/product/featured-product";
 import { Button } from "@/components/ui/button";
@@ -140,7 +141,7 @@ export default function Home() {
       </MaxWidthContainer>
       <MaxWidthContainer className="mt-8 mb-20">
         <div className="flex flex-col gap-12">
-          <h2 className="text-[32px] font-semibold leading-tight">
+          <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
             Featured Products
           </h2>
           <FeatureProduct />
@@ -148,10 +149,10 @@ export default function Home() {
       </MaxWidthContainer>
       <MaxWidthContainer className="mb-20">
         <div className="flex flex-col gap-12">
-          <h2 className="text-[32px] font-semibold leading-tight">
+          <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
             Top categories
           </h2>
-          <FeatureProduct />
+          <FeaturedCategories />
         </div>
       </MaxWidthContainer>
     </>
