@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 
 import useGetProductCategories from "@/app/api/useGetProductCategories";
-import NavSkeleton from "./category/navSkeleton";
+import NavCategorySkeleton from "./category/NavCategorySkeleton";
 
 import { TResponse } from "@/types/response";
 import { Category } from "@/types/category";
@@ -35,7 +35,7 @@ export const Navigator = () => {
               {loading ? (
                 Array(4)
                   .fill(null)
-                  .map((_, index) => <NavSkeleton key={index} />)
+                  .map((_, index) => <NavCategorySkeleton key={index} />)
               ) : error ? (
                 <p className="text-red-500">
                   Failed to load categories: {error}

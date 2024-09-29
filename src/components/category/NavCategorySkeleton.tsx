@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-const NavSkeleton = () => {
+const NavCategorySkeleton = () => {
   return (
     <div className="flex flex-col space-y-3 my-2">
       <Skeleton className="h-5 max-w-[150px]" />
@@ -12,4 +12,4 @@ const NavSkeleton = () => {
   );
 };
 
-export default NavSkeleton;
+export default NavCategorySkeleton;
