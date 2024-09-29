@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
-import useGetProductCategories from "@/app/api/useGetProductCategories";
+import useGetProductCategories from "@/api/useGetProductCategories";
 import NavCategorySkeleton from "./category/NavCategorySkeleton";
 
 import { TResponse } from "@/types/response";

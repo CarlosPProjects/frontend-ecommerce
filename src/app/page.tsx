@@ -2,6 +2,7 @@ import FeaturedCategories from "@/components/category/FeaturedCategories";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
 import OurBrands from "@/components/OurBrands";
 import FeatureProducts from "@/components/product/FeaturedProducts";
+import ListProducts from "@/components/product/ListProducts";
 import { Button } from "@/components/ui/button";
 import {
   Clock,
@@ -94,9 +95,11 @@ export default function Home() {
           </div>
         </div>
       </MaxWidthContainer>
+      {/* Our Brands */}
       <MaxWidthContainer>
         <OurBrands />
       </MaxWidthContainer>
+      {/* Featured Products */}
       <MaxWidthContainer className="mt-8 mb-20">
         <div className="flex flex-col gap-12">
           <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
@@ -105,12 +108,22 @@ export default function Home() {
           <FeatureProducts />
         </div>
       </MaxWidthContainer>
+      {/* Categories */}
       <MaxWidthContainer className="mb-20">
         <div className="flex flex-col gap-12">
           <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
             Top categories
           </h2>
           <FeaturedCategories />
+        </div>
+      </MaxWidthContainer>
+      {/* Our Products */}
+      <MaxWidthContainer className="mb-20">
+        <div className="flex flex-col gap-12">
+          <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
+            Our Products
+          </h2>
+          <ListProducts />
         </div>
       </MaxWidthContainer>
     </>

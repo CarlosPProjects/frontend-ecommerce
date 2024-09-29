@@ -1,13 +1,13 @@
 "use client";
 
-import useGetFeaturedProducts from "@/api/useGetFeaturedProducts";
-import { TResponse } from "@/types/response";
-import CardProduct from "./CardProduct";
+import useGetProducts from "@/api/useGetProducts";
 import { Product } from "@/types/product";
 import CardProductSkeleton from "./CardProductSkeleton";
+import CardProduct from "./CardProduct";
+import { TResponse } from "@/types/response";
 
-const FeatureProducts = () => {
-  const { error, loading, result }: TResponse = useGetFeaturedProducts();
+const ListProducts = ({}) => {
+  const { error, loading, result }: TResponse = useGetProducts();
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
@@ -29,4 +29,4 @@ const FeatureProducts = () => {
   );
 };
 
-export default FeatureProducts;
+export default ListProducts;
