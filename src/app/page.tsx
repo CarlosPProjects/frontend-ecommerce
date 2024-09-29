@@ -1,5 +1,6 @@
 import FeaturedCategories from "@/components/category/FeaturedCategories";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
+import OurBrands from "@/components/OurBrands";
 import FeatureProducts from "@/components/product/FeaturedProducts";
 import { Button } from "@/components/ui/button";
 import {
@@ -94,50 +95,7 @@ export default function Home() {
         </div>
       </MaxWidthContainer>
       <MaxWidthContainer>
-        <div className="hidden lg:flex gap-8 items-center justify-between flex-wrap">
-          <Image
-            src="/assets/brands/Logo-0.png"
-            alt="logo"
-            width={85}
-            height={87}
-          />
-          <Image
-            src="/assets/brands/Logo-1.png"
-            alt="logo"
-            width={107}
-            height={109}
-          />
-          <Image
-            src="/assets/brands/Logo-2.png"
-            alt="logo"
-            width={135}
-            height={139}
-          />
-          <Image
-            src="/assets/brands/Logo-3.png"
-            alt="logo"
-            width={63}
-            height={65}
-          />
-          <Image
-            src="/assets/brands/Logo-4.png"
-            alt="logo"
-            width={98}
-            height={101}
-          />
-          <Image
-            src="/assets/brands/Logo-5.png"
-            alt="logo"
-            width={113}
-            height={115}
-          />
-          <Image
-            src="/assets/brands/Logo-6.png"
-            alt="logo"
-            width={84}
-            height={87}
-          />
-        </div>
+        <OurBrands />
       </MaxWidthContainer>
       <MaxWidthContainer className="mt-8 mb-20">
         <div className="flex flex-col gap-12">
