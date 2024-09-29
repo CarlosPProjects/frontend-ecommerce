@@ -14,8 +14,8 @@ import Link from "next/link";
 const MenuMobile = () => {
   return (
     <Sheet>
-      <SheetTrigger className="bg-white rounded-lg p-2">
-        <Menu strokeWidth="1.5" className="w-5 h-5"/>
+      <SheetTrigger>
+        <Menu strokeWidth="1.5" className="w-6 h-6"/>
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         <SheetHeader>

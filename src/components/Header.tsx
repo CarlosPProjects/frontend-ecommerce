@@ -12,7 +12,7 @@ const Header = () => {
     <>
       <TopBar />
       {/* Header */}
-      <div className="bg-background-light">
+      <div className="bg-white md:bg-background-light">
         <MaxWidthContainer className="py-[22px]">
           <div className="flex justify-between items-center">
             <Image

@@ -1,15 +1,15 @@
 import MaxWidthContainer from "@/components/MaxWidthContainer";
 import FeatureProduct from "@/components/product/featured-product";
 import { Button } from "@/components/ui/button";
-import { ArrowBigRight, MoveRightIcon } from "lucide-react";
+import { ArrowBigRight, Clock, MoveRightIcon, Package, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <main className="overflow-hidden flex items-center max-w-[1740px] mx-auto bg-background-light lg:min-h-[850px] rounded-bl-[48px] rounded-br-[48px] py-8">
+      <main className="overflow-hidden flex items-center max-w-[1740px] mx-auto bg-background-light lg:min-h-[850px] rounded-none lg:rounded-bl-[48px] lg:rounded-br-[48px] py-8">
         {/* Hero Section */}
-        <MaxWidthContainer className="z-10">
+        <MaxWidthContainer className="z-[1]">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-14">
             <div className="flex flex-col gap-2 max-w-[632px] mt-16">
               <span className="uppercase text-sm tracking-wider">
@@ -32,11 +32,45 @@ export default function Home() {
                 width={475}
                 height={649}
               />
-              <div className="absolute w-[750px] h-[750px] bg-[#E1E3E5] rounded-full -z-10 inset-1/2 lg:-inset-1/4 lg:-translate-y-64 place-self-center lg:place-self-end"></div>
+              <div className="absolute w-[750px] h-[750px] bg-[#E1E3E5] rounded-full -z-[1] inset-1/2 lg:-inset-1/4 lg:-translate-y-64 place-self-center lg:place-self-end"></div>
             </div>
           </div>
         </MaxWidthContainer>
       </main>
+      {/* Faq bar */}
+      <MaxWidthContainer className="lg:-translate-y-1/2">
+        <div className="grid items-center grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-8 py-10 lg:py-12 rounded-xl bg-white lg:shadow-md">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+            <Package strokeWidth="1" className="w-11 h-11"/>
+            <div className="text-center md:text-start">
+              <p className="text-lg leading-tight mb-[6px] font-medium">Discount</p>
+              <p className="text-sm text-muted leading-tight">Every week new sales</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+            <Truck strokeWidth="1" className="w-11 h-11"/>
+            <div className="text-center md:text-start">
+              <p className="text-lg leading-tight mb-[6px] font-medium">Free Delivery</p>
+              <p className="text-sm text-muted leading-tight">100% Free for all orders</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+            <Clock strokeWidth="1" className="w-11 h-11"/>
+            <div className="text-center md:text-start">
+              <p className="text-lg leading-tight mb-[6px] font-medium">Great Support 24/7</p>
+              <p className="text-sm text-muted leading-tight">We care your experiences</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+            <ShieldCheck strokeWidth="1" className="w-11 h-11"/>
+            <div className="text-center md:text-start">
+              <p className="text-lg leading-tight mb-[6px] font-medium">Secure Payment</p>
+              <p className="text-sm text-muted leading-tight">100% Secure Payment Method</p>
+            </div>
+          </div>
+          
+        </div>
+      </MaxWidthContainer>
     </>
   );
 }

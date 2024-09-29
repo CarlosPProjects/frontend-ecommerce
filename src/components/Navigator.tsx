@@ -13,31 +13,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { TResponse } from "@/types/response";
+
 import useGetProductCategories from "@/app/api/useGetProductCategories";
 import NavSkeleton from "./category/navSkeleton";
-import { Category } from "@/types/category";
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Desk Chair",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A functional chair with ergonomic features, ideal for workspaces and long hours at a desk.",
-  },
-  {
-    title: "Wing Chair",
-    href: "/docs/primitives/hover-card",
-    description:
-      "A stylish, high-backed armchair with 'winged'   sides, perfect for cozy living spaces.",
-  },
-  {
-    title: "Wooden Chair",
-    href: "/docs/primitives/progress",
-    description:
-      "A durable, solid wood chair that adds natural charm to any decor.",
-  },
-];
+import { TResponse } from "@/types/response";
+import { Category } from "@/types/category";
 
 export const Navigator = () => {
   const { loading, result }: TResponse = useGetProductCategories();
