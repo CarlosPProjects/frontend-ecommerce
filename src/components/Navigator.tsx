@@ -45,7 +45,7 @@ export const Navigator = () => {
                   <ListItem
                     key={data.name}
                     title={data.name}
-                    href={`/product/category/${data.slug}`}
+                    href={`/category/${data.slug}`}
                   >
                     {data.description}
                   </ListItem>

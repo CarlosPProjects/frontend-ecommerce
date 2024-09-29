@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 
-const useGeProducts = () => {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*`;
+const useGeProducts = (slug: string | string[] | undefined) => {
+  let url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*`;
+
+  if (slug) {
+    url += `&filters[category][slug][$eq]=${slug}`;
+  }
+
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -20,6 +25,6 @@ const useGeProducts = () => {
     })();
   }, [url]);
   return { loading, error, result };
-}
+};
 
-export default useGeProducts
+export default useGeProducts;
