@@ -4,16 +4,16 @@ import useGetFeaturedProducts from "@/app/api/useGetFeaturedProducts";
 import { TResponse } from "@/types/response";
 import CardProduct from "./CardProduct";
 import { Product } from "@/types/product";
-import CardSkeleton from "./CardSkeleton";
+import CardProductSkeleton from "./CardProductSkeleton";
 
-const FeatureProduct = () => {
+const FeatureProducts = () => {
   const { error, loading, result }: TResponse = useGetFeaturedProducts();
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {loading || error ? (
         Array(4).fill(null).map((_, index) => (
-          <CardSkeleton key={index} />
+          <CardProductSkeleton key={index} />
         ))
       ) : (
         result?.map((data: Product) => (
@@ -31,4 +31,4 @@ const FeatureProduct = () => {
   );
 };
 
-export default FeatureProduct;
+export default FeatureProducts;

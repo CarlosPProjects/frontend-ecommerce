@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-const CardSkeleton = () => {
+const CardProductSkeleton = () => {
   return (
     <div className="flex flex-col gap-4">
       <Skeleton className="min-h-[312px] w-full rounded-xl" />
@@ -15,4 +15,4 @@ const CardSkeleton = () => {
   );
 };
 
-export default CardSkeleton;
+export default CardProductSkeleton;

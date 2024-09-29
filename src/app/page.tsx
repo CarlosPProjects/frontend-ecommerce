@@ -1,6 +1,6 @@
 import FeaturedCategories from "@/components/category/FeaturedCategories";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
-import FeatureProduct from "@/components/product/featured-product";
+import FeatureProducts from "@/components/product/FeaturedProducts";
 import { Button } from "@/components/ui/button";
 import {
   Clock,
@@ -144,7 +144,7 @@ export default function Home() {
           <h2 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
             Featured Products
           </h2>
-          <FeatureProduct />
+          <FeatureProducts />
         </div>
       </MaxWidthContainer>
       <MaxWidthContainer className="mb-20">
