@@ -4,14 +4,17 @@ import useGetFeaturedProducts from "@/app/api/useGetFeaturedProducts";
 import { TResponse } from "@/types/response";
 import CardProduct from "./CardProduct";
 import { Product } from "@/types/product";
+import CardSkeleton from "./CardSkeleton";
 
 const FeatureProduct = () => {
-  const { loading, result }: TResponse = useGetFeaturedProducts();
+  const { error, loading, result }: TResponse = useGetFeaturedProducts();
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {loading ? (
-        <p>Loading</p>
+      {loading || error ? (
+        Array(4).fill(null).map((_, index) => (
+          <CardSkeleton key={index} />
+        ))
       ) : (
         result?.map((data: Product) => (
           <CardProduct
