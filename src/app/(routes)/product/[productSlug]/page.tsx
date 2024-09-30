@@ -1,21 +1,35 @@
-"use client"
+"use client";
 
 import useGetSingleProduct from "@/api/useGetSingleProduct";
-import { useParams } from "next/navigation"
+import MaxWidthContainer from "@/components/MaxWidthContainer";
+import { Product } from "@/types/product";
+import { TResponse } from "@/types/response";
+import { useParams } from "next/navigation";
 
 const Page = () => {
   const params = useParams();
   const { productSlug } = params;
 
-  console.log(productSlug);
+  const { error, loading, result }: TResponse =
+    useGetSingleProduct(productSlug);
 
-  const { loading, error, result } = useGetSingleProduct(productSlug);
+  if (loading || error) {
+    return (
+      <MaxWidthContainer>
+        <div>Loading...</div>
+      </MaxWidthContainer>
+    );
+  } else {
+    const { name, description, images, price, salePrice }: Product = result[0];
 
-  console.log(result);
+    return (
+      <MaxWidthContainer>
+        <div>
+          <p>{name}</p>
+        </div>
+      </MaxWidthContainer>
+    );
+  }
+};
 
-  return (
-    <div>Page</div>
-  )
-}
-
-export default Page
+export default Page;
