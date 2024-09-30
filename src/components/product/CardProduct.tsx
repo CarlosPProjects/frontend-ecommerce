@@ -2,29 +2,26 @@ import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { FC } from "react";
 import { Button } from "../ui/button";
+import { Product } from "@/types/product";
+import Link from "next/link";
 
 interface CardProductProps {
-  name: string;
-  price: number;
-  salePrice?: number;
-  isNew: boolean;
-  featuredImage: string;
+  product: Product
 }
 
 const CardProduct: FC<CardProductProps> = ({
-  name,
-  price,
-  salePrice,
-  isNew,
-  featuredImage,
+  product
 }) => {
-  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
+
+  const { slug, name, price, salePrice, images, isNew } = product
 
   return (
     <div className="flex flex-col gap-4 group/general">
       <div className="relative w-full min-h-[312px] bg-no-repeat bg-center">
         <Image
-          src={`${url}${featuredImage}`}
+          src={`${backendUrl}${images[0].formats.medium.url}`}
           alt={name}
           fill
           className="object-cover rounded-xl"
@@ -32,9 +29,9 @@ const CardProduct: FC<CardProductProps> = ({
       </div>
       <div className="flex justify-between gap-3">
         <div>
-          <p className="text-base leading-tight group-hover/general:text-accent mb-[10px] transition">
+          <Link href={`${frontendUrl}/product/${slug}`} className="text-base leading-tight group-hover/general:text-accent mb-[10px] transition">
             {name}
-          </p>
+          </Link>
           <p className="text-lg leading-tight font-semibold">${price}</p>
         </div>
         <Button

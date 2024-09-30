@@ -17,12 +17,8 @@ const FeatureProducts = () => {
             .map((_, index) => <CardProductSkeleton key={index} />)
         : result?.map((data: Product) => (
             <CardProduct
-              key={data.name}
-              name={data.name}
-              featuredImage={data.images[0].formats.medium.url}
-              isNew={data.isNew}
-              price={data.price}
-              salePrice={data.salePrice}
+              key={data.slug}
+              product={data}
             />
           ))}
     </div>
