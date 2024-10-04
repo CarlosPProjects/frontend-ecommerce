@@ -6,6 +6,7 @@ import React from "react";
 import CartProduct from "./components/cart-product";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const cart = useCart();
@@ -14,6 +15,21 @@ const Cart = () => {
     (acc: number, item: Product) => acc + item.price,
     0
   );
+
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY || ""
+  );
+
+  const buyStripe = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makePaymentRequest.poost("/api/orders", {
+        products: items
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <MaxWidthContainer className="my-20">
