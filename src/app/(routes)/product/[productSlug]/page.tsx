@@ -5,7 +5,7 @@ import MaxWidthContainer from "@/components/MaxWidthContainer";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/types/product";
 import { TResponse } from "@/types/response";
-import { MoveRightIcon, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -26,31 +26,30 @@ const Page = () => {
       </MaxWidthContainer>
     );
   } else {
-    const { name, description, images, price, salePrice }: Product = result[0];
+    const { name, description, images, price }: Product = result[0];
 
     return (
       <>
         <MaxWidthContainer className="bg-background-light">
-          <div className="py-4  ">
+          <div className="py-5 text-sm">
             <Link href="/" className="font-semibold">
               Inicio
             </Link>{" "}
             / {name}
           </div>
         </MaxWidthContainer>
-        <MaxWidthContainer className="my-20">
-          <div className="flex flex-wrap justify-between gap-8">
-            <div className="">
-              <div className="w-[500px] h-[500px] relative bg-no-repeat bg-cover bg-center">
-                <Image
-                  src={url + images[0].formats.medium.url}
-                  alt={name}
-                  fill
-                  className="object-cover rounded-xl"
-                />
-              </div>
+        <MaxWidthContainer className="mt-4 mb-12 md:my-20">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
+            <div className="max-w-[500px] flex-1">
+              <Image
+                src={url + images[0].formats.medium.url}
+                alt={name}
+                width={500}
+                height={500}
+                className="w-full h-[300px] md:h-[500px] object-cover object-center rounded-xl"
+              />
             </div>
-            <div className="w-full max-w-[500px] space-y-4">
+            <div className="flex-1 w-full max-w-[500px] space-y-4">
               <h1 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
                 {name}
               </h1>

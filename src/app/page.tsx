@@ -12,6 +12,7 @@ import {
   Truck,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -27,11 +28,13 @@ export default function Home() {
               <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-tight capitalize">
                 Best Furniture Collection for your interior.
               </h1>
-              <Button className="w-fit group mt-4">
-                <span className="text-base font-semibold leading-tight mr-5 ">
-                  Shop Now
-                </span>
-                <MoveRightIcon className="w-6 h-6 group-hover:translate-x-1 transition" />
+              <Button asChild className="w-fit group mt-4">
+                <Link href="/shop">
+                  <span className="text-base font-semibold leading-tight mr-5 ">
+                    Shop Now
+                  </span>
+                  <MoveRightIcon className="w-6 h-6 group-hover:translate-x-1 transition" />
+                </Link>
               </Button>
             </div>
             <div className="relative">
