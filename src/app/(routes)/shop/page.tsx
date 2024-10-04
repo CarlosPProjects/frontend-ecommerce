@@ -6,10 +6,10 @@ const Page = () => {
   return (
     <MaxWidthContainer className="my-20">
       <div className="flex flex-col gap-12">
-      <h1 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
-        Shop
-      </h1>
-      <ListProducts/>
+        <h1 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
+          Shop
+        </h1>
+        <ListProducts />
       </div>
     </MaxWidthContainer>
   );
