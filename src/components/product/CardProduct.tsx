@@ -14,7 +14,7 @@ const CardProduct: FC<CardProductProps> = ({ product }) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
-  const { slug, name, price, images, isNew } = product;
+  const { slug, name, price, images } = product;
 
   const { addItem } = useCart();
 
