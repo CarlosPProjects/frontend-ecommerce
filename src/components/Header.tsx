@@ -6,7 +6,7 @@ import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { Navigator } from "./Navigator";
 import MenuMobile from "./MenuMobile";
-import ShopCart from "./ShoppingCart";
+import ShopCart from "./ShopCart";
 
 const Header = () => {
   return (

@@ -2,12 +2,17 @@
 
 import { useCart } from "@/hooks/use-cart";
 import { ShoppingCart } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const ShopCart = () => {
   const cart = useCart();
+  const router = useRouter();
 
   return (
-    <div className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group relative">
+    <div
+      onClick={() => router.push("/cart")}
+      className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group relative cursor-pointer"
+    >
       <ShoppingCart
         strokeWidth="1.5"
         className="w-[22px] h-[22px] group-hover:text-white transition"

@@ -2,10 +2,8 @@
 
 import useGetSingleProduct from "@/api/useGetSingleProduct";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
-import { Button } from "@/components/ui/button";
 import { Product } from "@/types/product";
 import { TResponse } from "@/types/response";
-import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -27,7 +25,7 @@ const Page = () => {
       </MaxWidthContainer>
     );
   } else {
-    const { name, description, images, price }: Product = result[0];
+    const { name, images }: Product = result[0];
 
     return (
       <>
