@@ -9,6 +9,7 @@ import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import InfoProduct from "./components/info-product";
 
 const Page = () => {
   const params = useParams();
@@ -49,19 +50,7 @@ const Page = () => {
                 className="w-full h-[300px] md:h-[500px] object-cover object-center rounded-xl"
               />
             </div>
-            <div className="flex-1 w-full max-w-[500px] space-y-4">
-              <h1 className="text-[28px] sm:text-[32px] font-semibold leading-tight">
-                {name}
-              </h1>
-              <p>{description}</p>
-              <p className="text-xl md:text-2xl font-bold pb-4">${price} </p>
-              <Button>
-                <span className="text-base font-semibold leading-tight mr-5 ">
-                  Add to cart
-                </span>
-                <ShoppingCart className="w-6 h-6 group-hover:translate-x-1 transition" />
-              </Button>
-            </div>
+            <InfoProduct product={result[0]} />
           </div>
         </MaxWidthContainer>
       </>

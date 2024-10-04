@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import MaxWidthContainer from "./MaxWidthContainer";
 import TopBar from "./TopBar";
@@ -6,8 +8,12 @@ import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { Navigator } from "./Navigator";
 import MenuMobile from "./MenuMobile";
+import { useCart } from "@/hooks/use-cart";
 
 const Header = () => {
+
+  const cart = useCart();
+
   return (
     <>
       <TopBar />

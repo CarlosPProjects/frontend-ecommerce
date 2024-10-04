@@ -4,18 +4,19 @@ import { FC } from "react";
 import { Button } from "../ui/button";
 import { Product } from "@/types/product";
 import Link from "next/link";
+import { useCart } from "@/hooks/use-cart";
 
 interface CardProductProps {
-  product: Product
+  product: Product;
 }
 
-const CardProduct: FC<CardProductProps> = ({
-  product
-}) => {
+const CardProduct: FC<CardProductProps> = ({ product }) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
-  const { slug, name, price, salePrice, images, isNew } = product
+  const { slug, name, price, images, isNew } = product;
+
+  const { addItem } = useCart();
 
   return (
     <div className="flex flex-col gap-4 group/general">
@@ -29,7 +30,10 @@ const CardProduct: FC<CardProductProps> = ({
       </div>
       <div className="flex justify-between gap-3">
         <div>
-          <Link href={`${frontendUrl}/product/${slug}`} className="text-base leading-tight group-hover/general:text-accent mb-[10px] transition">
+          <Link
+            href={`${frontendUrl}/product/${slug}`}
+            className="text-base leading-tight group-hover/general:text-accent mb-[10px] transition"
+          >
             {name}
           </Link>
           <p className="text-lg leading-tight font-semibold">${price}</p>
@@ -37,6 +41,7 @@ const CardProduct: FC<CardProductProps> = ({
         <Button
           size="icon"
           className="rounded-lg p-[10px] bg-background-light hover:bg-accent duration-300 group/btn"
+          onClick={() => addItem(product)}
         >
           <ShoppingCart
             strokeWidth="1.5"
