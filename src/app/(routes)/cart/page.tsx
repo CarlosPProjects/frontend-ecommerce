@@ -6,7 +6,6 @@ import React from "react";
 import CartProduct from "./components/cart-product";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const Cart = () => {
   const cart = useCart();
@@ -29,7 +28,11 @@ const Cart = () => {
                 <CartProduct key={item.id} product={item} />
               ))
             ) : (
-              <div></div>
+              <div className="space-y-4">
+                <h3 className="text-[18px] font-semibold leading-tight">
+                  No items in cart
+                </h3>
+              </div>
             )}
           </div>
           <div className="flex flex-col gap-4 flex-1 h-fit bg-background-light p-8 rounded-2xl">
