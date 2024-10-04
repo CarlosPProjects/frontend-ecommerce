@@ -28,7 +28,7 @@ const CartProduct: FC<CartProductProps> = ({ product }) => {
       </div>
       <div className="flex flex-1 justify-between flex-col gap-4 p-4">
         <p className="font-medium">{product.name}</p>
-        <p className="text-base font-semibold">${product.price}</p>
+        <p className="text-base font-semibold">{product.price}€</p>
         <Button
           onClick={() => removeItem(product.id)}
           variant="destructive"

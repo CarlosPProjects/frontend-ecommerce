@@ -36,7 +36,7 @@ const CardProduct: FC<CardProductProps> = ({ product }) => {
           >
             {name}
           </Link>
-          <p className="text-lg leading-tight font-semibold">${price}</p>
+          <p className="text-lg leading-tight font-semibold">{price}€</p>
         </div>
         <Button
           size="icon"

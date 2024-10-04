@@ -7,6 +7,7 @@ import CartProduct from "./components/cart-product";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
 import { loadStripe } from "@stripe/stripe-js";
+import { makePaymentRequest } from "@/api/payments";
 
 const Cart = () => {
   const cart = useCart();
@@ -23,9 +24,13 @@ const Cart = () => {
   const buyStripe = async () => {
     try {
       const stripe = await stripePromise;
-      const res = await makePaymentRequest.poost("/api/orders", {
-        products: items
-      })
+      const res = await makePaymentRequest.post("/api/orders", {
+        products: cart.items,
+      });
+
+      await stripe?.redirectToCheckout({
+        sessionId: res.data.id,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -56,9 +61,12 @@ const Cart = () => {
               Order Summary
             </h3>
             <div className="flex justify-between">
-              Subtotal: <span className="font-semibold">${subtotal}</span>
+              Subtotal: <span className="font-semibold">{subtotal}€</span>
             </div>
-            <Button disabled={cart.items.length > 0 ? false : true}>
+            <Button
+              onClick={buyStripe}
+              disabled={cart.items.length > 0 ? false : true}
+            >
               Complete Order
             </Button>
           </div>

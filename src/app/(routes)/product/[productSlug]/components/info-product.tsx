@@ -19,7 +19,7 @@ const InfoProduct = (props: InfoProductProps) => {
         {product.name}
       </h1>
       <p>{product.description}</p>
-      <p className="text-xl md:text-2xl font-bold pb-4">${product.price} </p>
+      <p className="text-xl md:text-2xl font-bold pb-4">{product.price}€</p>
       <Button onClick={() => addItem(product)}>
         <span className="text-base font-semibold leading-tight mr-5 ">
           Add to cart
