@@ -1,19 +1,14 @@
-"use client"
-
 import Image from "next/image";
 import MaxWidthContainer from "./MaxWidthContainer";
 import TopBar from "./TopBar";
-import { Heart, ShoppingCart, User } from "lucide-react";
+import { Heart, User } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { Navigator } from "./Navigator";
 import MenuMobile from "./MenuMobile";
-import { useCart } from "@/hooks/use-cart";
+import ShopCart from "./ShoppingCart";
 
 const Header = () => {
-
-  const cart = useCart();
-
   return (
     <>
       <TopBar />
@@ -32,9 +27,7 @@ const Header = () => {
             </Link>
             <SearchInput />
             <div className="hidden md:flex gap-[12px]">
-              <div className="rounded-lg bg-white p-[11px]">
-                <ShoppingCart strokeWidth="1.5" className="w-[22px] h-[22px]" />
-              </div>
+              <ShopCart />
               <Link
                 href="#"
                 className="rounded-lg bg-white p-[11px] hover:bg-accent duration-300 group"
