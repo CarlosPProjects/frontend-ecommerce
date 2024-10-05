@@ -11,6 +11,7 @@ import { makePaymentRequest } from "@/api/payments";
 
 const Cart = () => {
   const cart = useCart();
+  const { items } = useCart();
 
   const subtotal = cart.items.reduce(
     (acc: number, item: Product) => acc + item.price,
@@ -23,16 +24,20 @@ const Cart = () => {
 
   const buyStripe = async () => {
     try {
+      console.log("Entrando al flujo");
       const stripe = await stripePromise;
+
+      console.log(items);
+
       const res = await makePaymentRequest.post("/api/orders", {
-        products: cart.items,
+        products: items,
       });
 
       await stripe?.redirectToCheckout({
-        sessionId: res.data.id,
+        sessionId: res.data.stripeSession, // Asegúrate de acceder al sessionId correctamente
       });
     } catch (error) {
-      console.log(error);
+      console.log("Error en el carrito", error);
     }
   };
 
