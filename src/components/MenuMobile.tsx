@@ -1,10 +1,9 @@
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -14,27 +13,59 @@ const MenuMobile = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu strokeWidth="1.5" className="w-6 h-6"/>
+        <Menu strokeWidth="1.5" className="w-6 h-6" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when your done.
+            A project by{" "}
+            <Link href="https://github.com/CarlosPProjects">Carlos G.</Link>
           </SheetDescription>
         </SheetHeader>
-        <div className="flex-1">
+        <div className="flex-1 mt-4">
           <ul className="flex flex-col gap-2">
             <li className="">
-              <Link href="/#" className="block px-4 py-4 rounded-xl bg-background-light/50 w-full">Home</Link>
+              <SheetClose asChild>
+                <Link
+                  href="/"
+                  className="block px-4 py-4 rounded-xl bg-background-light/50 w-full"
+                >
+                  Home
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="">
+              <SheetClose asChild>
+                <Link
+                  href="/shop"
+                  className="block px-4 py-4 rounded-xl bg-background-light/50 w-full"
+                >
+                  Shop
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="">
+              <SheetClose asChild>
+                <Link
+                  href="/#"
+                  className="block px-4 py-4 rounded-xl bg-background-light/50 w-full"
+                >
+                  About
+                </Link>
+              </SheetClose>
+            </li>
+            <li className="">
+              <SheetClose asChild>
+                <Link
+                  href="/cart"
+                  className="block px-4 py-4 rounded-xl bg-background-light/50 w-full"
+                >
+                  Cart
+                </Link>
+              </SheetClose>
             </li>
           </ul>
         </div>
-        <SheetFooter className="justify-center">
-          <div className="w-full">
-            <p className="text-center">Copy</p>
-          </div>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   );
