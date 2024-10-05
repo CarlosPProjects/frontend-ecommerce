@@ -118,7 +118,12 @@ const Footer = () => {
         </MaxWidthContainer>
       </div>
       <MaxWidthContainer className="py-6">
-        <p className="text-center text-sm text-muted">Develop by <span className="text-primary">Carlos G.</span></p>
+        <Link
+          href="https://github.com/CarlosPProjects"
+          className="text-center text-sm text-muted"
+        >
+          Develop by <span className="text-primary">Carlos G.</span>
+        </Link>
       </MaxWidthContainer>
     </footer>
   );

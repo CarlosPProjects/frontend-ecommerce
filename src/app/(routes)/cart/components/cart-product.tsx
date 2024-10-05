@@ -20,7 +20,7 @@ const CartProduct: FC<CartProductProps> = ({ product }) => {
     <div className="md:max-w-[420px] h-fit flex gap-4 rounded-2xl border border-border">
       <div className="flex-1 relative">
         <Image
-          src={url + product.images[0].formats.medium.url}
+          src={url + product.images[0].formats.small.url}
           alt={product.name}
           fill
           className="w-[150px] object-cover object-center rounded-s-2xl"
