@@ -7,6 +7,12 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
         pathname: '/uploads/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'backend-ecommerce-a4gr.onrender.com',
+        port: '',
+        pathname: '/uploads/**'
       }
     ]
   }
