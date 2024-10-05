@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { AlertCircle, LifeBuoy, RefreshCcw } from "lucide-react";
+import { AlertCircle, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
